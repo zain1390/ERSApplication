@@ -1,9 +1,6 @@
 package com.amvotech.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,11 +11,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Table
 public class MedicalRecord {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long medicalId;
     @ManyToOne
-    @JoinColumn(name = "patientId")
+    @JoinColumn(name = "patient_id")
     private Patient patient;
     private Date recordDate;
     private String diagnosis;
