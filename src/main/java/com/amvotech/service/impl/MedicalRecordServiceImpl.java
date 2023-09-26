@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class MedicalRecordServiceImpl implements MedicalRecordService {
 
-
     @Autowired
     private MedicalRecordRepository medicalRecordRepository;
 
@@ -17,5 +16,17 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
     public MedicalRecord createMedicalRecord(MedicalRecord medicalRecord) {
         MedicalRecord item = medicalRecordRepository.save(medicalRecord);
         return item;
+    }
+
+    @Override
+    public MedicalRecord updateMedicalRecord(MedicalRecord medicalRecord) {
+        try{
+            MedicalRecord item = medicalRecordRepository.save(medicalRecord);
+            return item;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

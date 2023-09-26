@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.amvotech.model.Patient;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -25,5 +26,10 @@ public class PatientController {
     @GetMapping(value = "/getpatients")
     public ResponseEntity<List<Patient>> getAllPatient() {
         return ResponseEntity.ok(patientService.getAllPatient());
+    }
+    @GetMapping(value = "/getpatientbyid/{pid}")
+    public ResponseEntity<Optional<Patient>> getPatientById(@PathVariable String pid){
+        Long tempId = Long.valueOf(pid);
+        return ResponseEntity.ok(patientService.getPatientById(tempId));
     }
 }
