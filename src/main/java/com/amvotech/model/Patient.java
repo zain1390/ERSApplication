@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 @Table
 public class Patient {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long patientId;
-	private String name;
-	private Date dateOfBirth;
-	private String contactDetails;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long patientId;
+    private String name;
+    private Date dateOfBirth;
+    private String contactDetails;
 
 }
