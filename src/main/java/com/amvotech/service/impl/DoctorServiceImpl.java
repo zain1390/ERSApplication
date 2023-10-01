@@ -3,6 +3,7 @@ package com.amvotech.service.impl;
 import com.amvotech.dao.DoctorRepository;
 import com.amvotech.model.Doctor;
 import com.amvotech.service.DoctorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class DoctorServiceImpl implements DoctorService {
 
+    @Autowired
     private DoctorRepository doctorRepository;
 
     @Override

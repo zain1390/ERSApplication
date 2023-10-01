@@ -1,15 +1,13 @@
 package com.amvotech.rest;
 
+import com.amvotech.model.Patient;
 import com.amvotech.service.PatientService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.amvotech.model.Patient;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @RestController
 @RequestMapping(value = "/api")

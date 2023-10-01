@@ -32,11 +32,25 @@ public class DoctorController {
     }
 
     @PutMapping(value = "/updateDoctor/{did}")
-    public ResponseEntity<Optional<Doctor>> updatePatientById(@PathVariable String did, @RequestBody Doctor doctor) {
+    public ResponseEntity<Optional<Doctor>> updateDoctorById(@PathVariable String did, @RequestBody Doctor doctor) {
         Long tempId = Long.valueOf(did);
         Optional<Doctor> doctorTemp = doctorService.getDoctorById(tempId);
+        Doctor actualData = doctorTemp.get();
+        if (doctor.getDoctorName() != null) {
+            actualData.setDoctorName(doctor.getDoctorName());
+        }
+        if (doctor.getDoctorSpecialty() != null) {
+            actualData.setDoctorSpecialty(doctor.getDoctorSpecialty());
+        }
+        doctorService.createDoctor(actualData);
+        return ResponseEntity.ok(Optional.ofNullable(doctorService.createDoctor(actualData)));
+    }
 
-
+    @DeleteMapping(value = "deleteById/{doctorId}")
+    public ResponseEntity<String> deleteDoctorById(@PathVariable String doctorId) {
+        Long tempId = Long.valueOf(doctorId);
+        doctorService.deleteDoctorById(tempId);
+        return ResponseEntity.ok("Doctor ID: " + doctorId + " is deleted");
     }
 
 }
