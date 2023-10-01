@@ -46,7 +46,7 @@ public class DoctorController {
         return ResponseEntity.ok(Optional.ofNullable(doctorService.createDoctor(actualData)));
     }
 
-    @DeleteMapping(value = "deleteById/{doctorId}")
+    @DeleteMapping(value = "deleteDoctorById/{doctorId}")
     public ResponseEntity<String> deleteDoctorById(@PathVariable String doctorId) {
         Long tempId = Long.valueOf(doctorId);
         doctorService.deleteDoctorById(tempId);
