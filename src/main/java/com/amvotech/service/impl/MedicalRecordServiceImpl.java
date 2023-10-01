@@ -6,6 +6,8 @@ import com.amvotech.service.MedicalRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class MedicalRecordServiceImpl implements MedicalRecordService {
 
@@ -18,15 +20,7 @@ public class MedicalRecordServiceImpl implements MedicalRecordService {
         return item;
     }
 
-    @Override
-    public MedicalRecord updateMedicalRecord(MedicalRecord medicalRecord) {
-        try{
-            MedicalRecord item = medicalRecordRepository.save(medicalRecord);
-            return item;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
+    public Optional<MedicalRecord> getMedicalRecordById(Long medicalId) {
+        return medicalRecordRepository.findById(medicalId);
     }
 }

@@ -2,8 +2,12 @@ package com.amvotech.service;
 
 import com.amvotech.model.MedicalRecord;
 
-public interface MedicalRecordService {
-    public MedicalRecord  createMedicalRecord(MedicalRecord medicalRecord);
+import java.util.Optional;
 
-    public MedicalRecord  updateMedicalRecord(MedicalRecord medicalRecord);
+public interface MedicalRecordService {
+    public MedicalRecord createMedicalRecord(MedicalRecord medicalRecord);
+
+
+    public Optional<MedicalRecord> getMedicalRecordById(Long medicalId);
+
 }

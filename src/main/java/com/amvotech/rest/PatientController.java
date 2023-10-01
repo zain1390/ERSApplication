@@ -1,6 +1,7 @@
 package com.amvotech.rest;
 
 import com.amvotech.service.PatientService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,14 @@ public class PatientController {
         patientService.safePatient(actualData);
         return ResponseEntity.ok(Optional.ofNullable(patientService.safePatient(actualData)));
 
+    }
+
+    @DeleteMapping(value = "/deleteById/{patientId}")
+    public ResponseEntity<String> deletePatientById(@PathVariable String patientId){
+        Long tempId = Long.valueOf(patientId);
+        patientService.deletePatientById(tempId);
+
+        return ResponseEntity.ok("Patient ID: "+ patientId +" is deleted");
     }
 
 }

@@ -14,4 +14,6 @@ public interface PatientService {
 
     public Optional<Patient> getPatientById(Long patientId);
 
+    public void deletePatientById(Long patientId);
+
 }
